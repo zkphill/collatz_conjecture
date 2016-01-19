@@ -11,7 +11,7 @@ fout = open("output.txt", "w")
 
 # bounds for range of input numbers
 lower_bound = 1
-upper_bound = 101
+upper_bound = 1001
 
 
 # takes input and sends to odd or even function

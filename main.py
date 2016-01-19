@@ -6,6 +6,13 @@ Created on Jan 18, 2016
 
 # collatz conjuecture calculator
 
+
+fout = open("output.txt", "w")
+
+# bounds for range of input numbers
+lower_bound = 1
+upper_bound = 101
+
 # processes even numbers
 def collatz_even(num):
     return num // 2
@@ -21,11 +28,17 @@ def collatz_main(num):
     else:
         return collatz_odd(num)
 
-num = 33
-
-print str(num)
 
 # tests main function
-while num > 1:
-    num = collatz_main(num)
-    print str(num) 
+
+def collatz_test(lower_bound, upper_bound):
+    for num in range(lower_bound, upper_bound):
+        fout.write(str(num) + " ")
+        while num > 1:
+            num = collatz_main(num)
+            fout.write(str(num) + " ")
+        fout.write("\n" + "\n")
+    
+collatz_test(lower_bound, upper_bound)
+        
+fout.close()

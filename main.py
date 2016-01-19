@@ -10,8 +10,6 @@ Created on Jan 18, 2016
 fout = open("output.txt", "w")
 
 # bounds for range of input numbers
-lower_bound = 1
-upper_bound = 1001
 
 
 # takes input and sends to odd or even function
@@ -22,6 +20,8 @@ def collatz_calculator(num):
         return num * 3 + 1
 
 
+
+
 # tests collatz calculator
 def collatz_test(lower_bound, upper_bound):
     for num in range(lower_bound, upper_bound):
@@ -30,7 +30,10 @@ def collatz_test(lower_bound, upper_bound):
             num = collatz_calculator(num)
             fout.write(str(num) + " ")
         fout.write("\n" + "\n")
-    
+
+lower_bound = input("enter the first number : ")
+upper_bound = input("enter last number : ") + 1
+  
 collatz_test(lower_bound, upper_bound)
         
 fout.close()

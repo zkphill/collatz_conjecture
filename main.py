@@ -9,18 +9,12 @@ Created on Jan 18, 2016
 # output file
 fout = open("output.txt", "w")
 
-# bounds for range of input numbers
-
-
-# takes input and sends to odd or even function
+# implements the collatz conjucture algorithm
 def collatz_calculator(num):
     if num % 2 == 0:
         return num // 2
     else:
         return num * 3 + 1
-
-
-
 
 # tests collatz calculator
 def collatz_test(lower_bound, upper_bound):

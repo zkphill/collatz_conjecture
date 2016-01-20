@@ -3,7 +3,6 @@ Created on Jan 18, 2016
 
 @author: zkphi
 '''
-import timeit
 
 # collatz conjuecture calculator
 
@@ -16,17 +15,23 @@ def collatz_calculator(num):
         return num * 3 + 1
 
 # tests collatz calculator
-def collatz_test(upper_bound, lower_bound):
+# and counts the number of steps for all numbers
+# in the input range
+def collatz_test(lower_bound, upper_bound):
+    num_steps = 0
     for num in range(lower_bound, upper_bound):
+        
         while num > 1:
             num = collatz_calculator(num)    
+            num_steps += 1
+    return num_steps
+
 
 lower_bound = input("enter the first number : ")
 upper_bound = input("enter last number : ") + 1
 
-print "start"
+num_steps = collatz_test(lower_bound, upper_bound)
+average_num_steps = float(num_steps) / ((upper_bound - lower_bound))  
 
-# calculates runtime  
-t = timeit.Timer(lambda: collatz_test(upper_bound, lower_bound))
-
-print t.timeit(number = 1)
+print "Number of steps: " + str(num_steps) + ", " \
+        " Average number of steps: "+ str(average_num_steps)
